@@ -40,21 +40,15 @@ char	*ft_strjoin(char  *s1, char  *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (!(result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char)))) // Añadido + 1 para que no pete
+	if (!(result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char))))
 		return (NULL);
+	i = 0;
 	j = 0;
-	printf("Longuitud de la cadena 1: %ld\n", ft_strlen(s1));
-	printf("Longuitud de la cadena : %ld\n", ft_strlen(s2));
-	
 	while (s1[i] != '\0')
 	{
 		result[i] = s1[i];
 		i++;
 	}
-	//printf("Cadena 1 añadida\n");
-	
-	//i = ft_strlen(s1);
-	//result = ft_strdup(s1);
 	while (s2[j] != '\0')
 	{
 		result[i] = s2[j];

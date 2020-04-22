@@ -1,0 +1,4 @@
+Empieza a leerse el archivo
+Archivo leido correctamente
+Empieza la llamada a get_next_line
+Primera iteración

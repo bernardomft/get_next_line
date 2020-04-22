@@ -23,64 +23,34 @@ void ft_putstr(char *s)
         i++;
     }
 }
-/*
-static int     ft_return_values(int ret, char **line)
-{
-    if(ret < 0)
-        return (-1);
-    *line = ft_strdup(""); 
-    return (0);
-}
 
-static char     *ft_insert_in_line(char **line, char *aux,int *ret)
+static char *ft_insert_in_line(char *line)
 {
-    int     count;
+    ft_putstr("inicio de insert in line\n");
+    /*int     i;
     char    *temp;
 
-    count = 0;
-    while(aux[count] != '\n' && aux[count] != '\0')
-        count++;
-    if(aux[count] == '\n')
+    i = 0;
+    while(aux[i] != 'n' && aux[i] != '0')
+        i++;
+    ft_putstr("Salto de linea o final encontrado\n");
+    if(aux[i] == 'n')
     {
-        *line = ft_substr(aux, 0, count);
-        *ret = 1;
-        temp = ft_strdup(aux + (count + 1));
+        line = ft_substr(aux,0,i);
+        temp = ft_strdup(aux+(i + 1));
         aux = temp;
-    }
+    } 
     else
     {
-        *line = ft_strdup(aux);
-        *ret = 0;
+        line = ft_strdup(aux);
         free (aux);
         aux = NULL;
     }
-    return (aux);
+    */
+    return (line);
 }
-int         get_next_line(int fd, char **line)
-{
-    static char     *aux[4096];
-    char            *buf;
-    int             ret;
 
-    if (!(buf = (malloc(sizeof(char) * BUFFER_SIZE + 1))))
-        return (-1);
-    while((ret = read(fd, buf,BUFFER_SIZE)) > 0)
-    {
-        buf[ret] = '\0';
-        if (aux[fd] == NULL)
-            aux[fd] = ft_strdup(buf);
-        else 
-            aux[fd] = ft_strjoin(aux[fd],buf);
-        if (ft_strchr(aux[fd], '\n'))
-            break;
-    }
-    free(buf);
-    if (ret < 0 || (aux[fd] == NULL & ret == 0))
-        return (ft_return_values(ret, line));
-    aux[fd] = ft_insert_in_line(line,aux[fd],&ret);
-    return (ret);
-}
-*/
+
 int get_next_line(int fd,char **line)
 {
     static char     *aux[4096];
@@ -95,9 +65,13 @@ int get_next_line(int fd,char **line)
     {
         printf("Se han leido %d bytes\n",ret);
         buf[ret] = '\0';
-     
+    //ft_putstr("contenido del buffer:\n*********************\n");
+    //ft_putstr(buf); ft_putstr("\n*************************\n");
         if(aux[0] == NULL)
+        {
             aux[0]= ft_strdup(buf);
+            ft_putstr("Primera iteración\n");
+        }
         else
         {
             ft_putstr("Cadenas unidas\n");
@@ -110,12 +84,16 @@ int get_next_line(int fd,char **line)
      //ft_putstr(buf); ft_putstr("\n*************************\n");
     //ft_putstr("contenido de aux:\n************************ \n");
     //ft_putstr(aux[0]); ft_putstr("\n************************\n");
+    //ft_putstr("contenido de aux:\n************************ \n");
+    // ft_putstr(aux[0]); ft_putstr("\n************************\n");
     free(buf);
+    //aux[0] = ft_insert_in_line(line[0]);
     if(ret == 0 )
         return (0);
     else if(ret > 0)
         return (1);
     else
         return(-1);
+    //aux[0] = ft_insert_in_line(line,aux[fd],&ret);
 }
 
