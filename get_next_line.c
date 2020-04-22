@@ -95,8 +95,7 @@ int get_next_line(int fd,char **line)
     {
         printf("Se han leido %d bytes\n",ret);
         buf[ret] = '\0';
-      //  ft_putstr("contenido del buffer:\n*********************\n");
-       // ft_putstr(buf); ft_putstr("\n*************************\n");
+     
         if(aux[0] == NULL)
             aux[0]= ft_strdup(buf);
         else
@@ -107,8 +106,10 @@ int get_next_line(int fd,char **line)
         if(ft_strchr(aux[0],'\n'))
             break;        
     }
-    //ft_putstr("contenido de aux:\n************************ \n");
-    // ft_putstr(aux[0]); ft_putstr("\n************************\n");
+     ft_putstr("contenido del buffer:\n*********************\n");
+     ft_putstr(buf); ft_putstr("\n*************************\n");
+    ft_putstr("contenido de aux:\n************************ \n");
+    ft_putstr(aux[0]); ft_putstr("\n************************\n");
     free(buf);
     if(ret == 0 )
         return (0);
