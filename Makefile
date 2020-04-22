@@ -16,7 +16,7 @@ NAME=get_next_line.a
 
 CC=gcc
 
-CFLAGS= -Werror -Wextra -D BUFFER_SIZE=32
+CFLAGS= -Werror -Wextra -D BUFFER_SIZE=999
 
 RM=rm -f
 

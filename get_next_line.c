@@ -89,23 +89,32 @@ int get_next_line(int fd,char **line)
 
      if (!(buf = (malloc(sizeof(char) * BUFFER_SIZE + 1))))
         return (-1);
-    ft_putstr("Memoria para buff reservada\n");
+    //ft_putstr("Memoria para buff reservada\n");
     
     while((ret = read(fd,buf,BUFFER_SIZE)) > 0)
     {
         printf("Se han leido %d bytes\n",ret);
-        ft_putstr("contenido del buffer:\n*********************\n");
-        ft_putstr(buf); ft_putstr("\n*************************\n");
+        buf[ret] = '\0';
+      //  ft_putstr("contenido del buffer:\n*********************\n");
+       // ft_putstr(buf); ft_putstr("\n*************************\n");
         if(aux[0] == NULL)
             aux[0]= ft_strdup(buf);
         else
-            aux[0] = ft_strjoin(aux[0],buf);
+        {
+            ft_putstr("Cadenas unidas\n");
+            aux[0] = ft_strjoin(aux[0],buf);  //Aquí esta el probelma.
+        }
         if(ft_strchr(aux[0],'\n'))
             break;        
     }
-    ft_putstr("contenido de aux:\n************************ \n");
-    ft_putstr(aux[0]); ft_putstr("\n************************\n");
+    //ft_putstr("contenido de aux:\n************************ \n");
+    // ft_putstr(aux[0]); ft_putstr("\n************************\n");
     free(buf);
-    return 1;
+    if(ret == 0 )
+        return (0);
+    else if(ret > 0)
+        return (1);
+    else
+        return(-1);
 }
 

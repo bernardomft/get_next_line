@@ -19,7 +19,7 @@ void ft_putstr2(char *s)
 int main(void)
 {
     static char     *aux[4096];
-    int             ret;
+    int             ret = 1;
     int             fd;
     char            **line;
     int i = 0;
@@ -36,11 +36,10 @@ int main(void)
     
     
     ft_putstr2("Empieza la llamada a get_next_line\n");
-    while(i < 2)
+    while(ret == 1)
     {
         ret = get_next_line(fd,line);
         printf("Retorno de la funcion: %d\n", ret);
-        i++;
     }
     
 }
