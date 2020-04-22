@@ -12,6 +12,18 @@
 
 #include "get_next_line.h"
 
+void ft_putstr(char *s)
+{
+    int i;
+
+    i = 0;
+    while(s[i] != '\0')
+    {
+        write(1,s+i,1);
+        i++;
+    }
+}
+/*
 static int     ft_return_values(int ret, char **line)
 {
     if(ret < 0)
@@ -44,7 +56,6 @@ static char     *ft_insert_in_line(char **line, char *aux,int *ret)
     }
     return (aux);
 }
-
 int         get_next_line(int fd, char **line)
 {
     static char     *aux[4096];
@@ -68,5 +79,33 @@ int         get_next_line(int fd, char **line)
         return (ft_return_values(ret, line));
     aux[fd] = ft_insert_in_line(line,aux[fd],&ret);
     return (ret);
+}
+*/
+int get_next_line(int fd,char **line)
+{
+    static char     *aux[4096];
+    int             ret;
+    char            *buf;
+
+     if (!(buf = (malloc(sizeof(char) * BUFFER_SIZE + 1))))
+        return (-1);
+    ft_putstr("Memoria para buff reservada\n");
+    
+    while((ret = read(fd,buf,BUFFER_SIZE)) > 0)
+    {
+        printf("Se han leido %d bytes\n",ret);
+        ft_putstr("contenido del buffer:\n*********************\n");
+        ft_putstr(buf); ft_putstr("\n*************************\n");
+        if(aux[0] == NULL)
+            aux[0]= ft_strdup(buf);
+        else
+            aux[0] = ft_strjoin(aux[0],buf);
+        if(ft_strchr(aux[0],'\n'))
+            break;        
+    }
+    ft_putstr("contenido de aux:\n************************ \n");
+    ft_putstr(aux[0]); ft_putstr("\n************************\n");
+    free(buf);
+    return 1;
 }
 
