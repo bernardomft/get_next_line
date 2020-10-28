@@ -28,16 +28,18 @@ static char     *ft_insert_in_line(char **line, char *aux,int *ret)
     count = 0;
     while(aux[count] != '\n' && aux[count] != '\0')
         count++;
+    //printf("Count: %d\n", count);
     if(aux[count] == '\n')
-    {
-        *line = ft_substr(aux, 0, count);
+    {   
+        line[0] = ft_substr(aux, 0, count);
         *ret = 1;
         temp = ft_strdup(aux + (count + 1));
+        free(aux);
         aux = temp;
     }
     else
     {
-        *line = ft_strdup(aux);
+        line[0] = ft_strdup(aux);
         *ret = 0;
         free (aux);
         aux = NULL;
@@ -47,7 +49,7 @@ static char     *ft_insert_in_line(char **line, char *aux,int *ret)
 
 int         get_next_line(int fd, char **line)
 {
-    static char     *aux[4096];
+    static char     *aux[400096];
     char            *buf;
     int             ret;
 
@@ -60,9 +62,14 @@ int         get_next_line(int fd, char **line)
             aux[fd] = ft_strdup(buf);
         else 
             aux[fd] = ft_strjoin(aux[fd],buf);
+        printf("\n\nbuf: %s", buf);
+        printf("\naux: %s", aux[fd]);
         if (ft_strchr(aux[fd], '\n'))
             break;
     }
+    //printf("\nHa encontrado una línea\n");
+    //printf("%s" ,aux[fd]);
+    //Hasta aquí todo bien. El problema está en insert in line
     free(buf);
     if (ret < 0 || (aux[fd] == NULL & ret == 0))
         return (ft_return_values(ret, line));
