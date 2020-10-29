@@ -40,7 +40,7 @@ char	*ft_strjoin(char  *s1, char  *s2)
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (!(result = malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char))))
+	if (!(result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char))))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -57,6 +57,7 @@ char	*ft_strjoin(char  *s1, char  *s2)
 	}
 	result[i] = '\0';
 	return (result);
+	
 }
 
 char	*ft_substr(char  *s, unsigned int start, size_t len)
