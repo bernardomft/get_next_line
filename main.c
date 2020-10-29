@@ -66,10 +66,14 @@ int main(void)
     while(ret1 > 0 || ret2 > 0)
     {
         if(i%2 == 0)
+        {
             ret1 = get_next_line(fd_3,line);
+            printf(" %d:    %s\n", i+1, line[0]);
+        }
+            
         else
             ret2 = get_next_line(fd_4,line);
-        printf(" %d:    %s\n", i+1, line[0]);
+            printf(" %d:    %s\n", i+1, line[0]);
         i++;
     }
     printf("\nLineas leídas: %d. Lienas esperadas: 104\n", i);
