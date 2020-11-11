@@ -16,7 +16,7 @@ NAME=get_next_line.a
 
 CC=gcc
 
-CFLAGS= -Werror -Wextra -D BUFFER_SIZE=999
+CFLAGS= -g -Werror -Wextra -D BUFFER_SIZE=999
 
 RM=rm -f
 
@@ -41,7 +41,7 @@ $(NAME): ./get_next_line.h
 	@echo "|   was created   |"
 	@echo "[=================]"
 
-all: $(NAME)
+all: clean fclean $(NAME)
 
 clean:
 	@$(RM) $(OBJ) 

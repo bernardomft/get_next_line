@@ -48,7 +48,7 @@
 
 int get_next_line(int fd,char **line)
 {
-    static char     *aux[40096];
+    static char     *aux[4096];
     int             ret;
     char            *buf;
 

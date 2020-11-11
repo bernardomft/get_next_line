@@ -34,28 +34,28 @@ int main(void)
 		return (1);
 	}
     
-    printf("\n****************Comienza el test de dos pomeas****************\n");
-    printf("\n++++++++++++++++POEMA 1: 47 LÍNEAS++++++++++++++++++++++++++++\n");
+    //printf("\n****************Comienza el test de dos pomeas****************\n");
+    //printf("\n++++++++++++++++POEMA 1: 47 LÍNEAS++++++++++++++++++++++++++++\n");
     
     while(ret > 0)
     {
         ret = get_next_line(fd_1,line);
-        printf(" %d:    %s\n", i+1, line[0]);
+        //printf(" %d:    %s\n", i+1, line[0]);
         i++;
     }
-    printf("\nLineas leídas: %d . Lienas esperadas: 47\n" ,i);
+    //printf("\nLineas leídas: %d . Lienas esperadas: 47\n" ,i);
 
-    printf("\n++++++++++++++++POEMA 2: 57 LÍNEAS++++++++++++++++++++++++++++\n");
+    //printf("\n++++++++++++++++POEMA 2: 57 LÍNEAS++++++++++++++++++++++++++++\n");
     ret = 1;
     i = 0;
     while(ret > 0)
     {
         ret = get_next_line(fd_2,line);
-        printf(" %d:    %s\n", i+1, line[0]);
+        //printf(" %d:    %s\n", i+1, line[0]);
         i++;
     }
-    printf("\nLineas leídas: %d. Lienas esperadas: 57\n", i);
-    printf("\nAhora se va a llamar cada vez a un archivo diferente\n");
+    //printf("\nLineas leídas: %d. Lienas esperadas: 57\n", i);
+    /*printf("\nAhora se va a llamar cada vez a un archivo diferente\n");
 
     ret = 1;
     i = 0;
@@ -77,4 +77,5 @@ int main(void)
         i++;
     }
     printf("\nLineas leídas: %d. Lienas esperadas: 104\n", i);
+    */
 }
