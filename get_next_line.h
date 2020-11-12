@@ -29,6 +29,7 @@ char	    *ft_substr(char  *s, unsigned int start, size_t len);
 size_t		ft_strlen( char *str);
 char	    *ft_strchr( char *s, int c);
 size_t	    ft_stchr_pos(char *s, char c);
+void	    *ft_memset(void *str, int c, size_t n);
 
 #endif
 

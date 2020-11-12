@@ -54,6 +54,13 @@ int main(void)
         //printf(" %d:    %s\n", i+1, line[0]);
         i++;
     }
+    system("leaks a.out");
+    //i = 0;
+    /*/while(i != 1)
+    {
+
+    }
+    system("leaks a.out");*/
     //printf("\nLineas leídas: %d. Lienas esperadas: 57\n", i);
     /*printf("\nAhora se va a llamar cada vez a un archivo diferente\n");
 

@@ -101,3 +101,17 @@ char	*ft_strchr( char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+
+void	*ft_memset(void *str, int c, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*aux;
+
+	aux = str;
+	i = 0;
+	while (n-- > 0)
+	{
+		aux[i++] = (unsigned char)c;
+	}
+	return (aux);
+}

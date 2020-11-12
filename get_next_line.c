@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
  char  *ft_insert_in_line(char *aux, char **line, int *ret)
 {
    
