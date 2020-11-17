@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmoran-f <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bmoran-f <bmoran-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/18 16:29:47 by bmoran-f          #+#    #+#             */
-/*   Updated: 2020/01/18 16:41:27 by bmoran-f         ###   ########.fr       */
+/*   Created: 2020/11/17 12:36:54 by bmoran-f          #+#    #+#             */
+/*   Updated: 2020/11/17 12:43:00 by bmoran-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strdup( char *s1)
+char		*ft_strdup(char *s1)
 {
 	int		leng;
 	char	*res;
@@ -32,7 +32,7 @@ char	*ft_strdup( char *s1)
 	return (res);
 }
 
-char	*ft_strjoin(char  *s1, char  *s2)
+char		*ft_strjoin(char *s1, char *s2)
 {
 	char	*result;
 	int		i;
@@ -59,7 +59,7 @@ char	*ft_strjoin(char  *s1, char  *s2)
 	return (result);
 }
 
-char	*ft_substr(char  *s, unsigned int start, size_t len)
+char		*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char		*ptr;
 	size_t		count;
@@ -79,7 +79,7 @@ char	*ft_substr(char  *s, unsigned int start, size_t len)
 	return (ptr);
 }
 
-size_t		ft_strlen( char *str)
+size_t		ft_strlen(char *str)
 {
 	int	i;
 
@@ -91,7 +91,7 @@ size_t		ft_strlen( char *str)
 	return (i);
 }
 
-char	*ft_strchr( char *s, int c)
+char		*ft_strchr(char *s, int c)
 {
 	while (*s && *s != (char)c)
 		s++;
@@ -100,18 +100,4 @@ char	*ft_strchr( char *s, int c)
 	if (!c && *s == '\0')
 		return ((char *)s);
 	return (NULL);
-}
-
-void	*ft_memset(void *str, int c, size_t n)
-{
-	unsigned int	i;
-	unsigned char	*aux;
-
-	aux = str;
-	i = 0;
-	while (n-- > 0)
-	{
-		aux[i++] = (unsigned char)c;
-	}
-	return (aux);
 }
