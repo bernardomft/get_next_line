@@ -16,7 +16,7 @@ NAME=get_next_line.a
 
 CC=gcc
 
-CFLAGS= -g -Werror -Wextra -D BUFFER_SIZE=999
+CFLAGS=  -Werror -Wextra -D BUFFER_SIZE=999
 
 RM=rm -f
 
@@ -28,8 +28,11 @@ HDDIRS=-I includes/
 
 SRC=get_next_line.c get_next_line_utils.c
 
-OBJ=$(SRC:.c=.o)
+SRCBONUS=get_next_line_bonus.c get_next_line_utils_bonus.c
 
+OBJBONUS=$(SRCBONUS:.c=.o)
+
+OBJ=$(SRC:.c=.o)
 
 $(NAME): ./get_next_line.h
 	@$(CC) $(CFLAGS) -c $(SRC) $(HDDIRS)
@@ -41,10 +44,17 @@ $(NAME): ./get_next_line.h
 	@echo "|   was created   |"
 	@echo "[=================]"
 
+
+bonus:./get_next_line_bonus.h
+	@$(CC) $(CFLAGS) -c $(SRCBONUS) $(HDDIRS)
+	ar rc $(NAME) $(OBJBONUS)
+	ranlib $(NAME)
+
 all: clean fclean $(NAME)
 
 clean:
 	@$(RM) $(OBJ) 
+	@$(RM) $(OBJBONUS)
 	@echo "[=================]"
 	@echo "|     succes !    |"
 	@echo "|     XXXXX.o     |"
@@ -53,6 +63,7 @@ clean:
 
 fclean: clean
 	@$(RM) $(NAME) 
+	@$(RM) $(OBJBONUS)
 	@echo "[=================]"
 	@echo "|     succes !    |"
 	@echo "| get_next_line.a |"
